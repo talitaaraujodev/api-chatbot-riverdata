@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "target": "ESNext",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "noEmit": false,
+    "experimentalDecorators": true
+  },
+  "exclude": ["node_modules"],
+  "include": ["src/**/*.ts", "bin/*.ts"],
+  "ts-node": {
+    "compilerOptions": {
+      "skipLibCheck": true,
+      "module": "ESNext",
+      "moduleResolution": "node",
+      "target": "ESNext",
+      "isolatedModules": true,
+      "esModuleInterop": true,
+      "noEmit": false,
+      "outDir": "./dist",
+      "lib": ["ESNext"],
+      "types": ["node"],
+      "baseUrl": "./"
+    }
+  }
+}

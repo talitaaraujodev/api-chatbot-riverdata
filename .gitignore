@@ -1,0 +1,15 @@
+node_modules
+
+# Env
+.env
+
+# .vscode
+.vscode
+
+
+# dist
+dist
+
+
+# models
+models
