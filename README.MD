@@ -1,6 +1,6 @@
 <div align="center">
 
-# Desafio Técnico - Riverdata
+# Desafio Técnico Backend - Riverdata
 
 Esse projeto faz parte do desafio técnico da Riverdata, e consiste em uma API REST desenvolvida em Node.js, na qual é possível utilizar um chat conversional integrando o modelo de linguagem LLAMA 2.
 
