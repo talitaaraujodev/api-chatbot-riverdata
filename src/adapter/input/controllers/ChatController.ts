@@ -18,6 +18,7 @@ export class ChatController {
         .status(200)
         .json(await this.chatServiceInputPort.sendPrompt(request.body.prompt));
     } catch (e) {
+      console.log(e);
       if (e instanceof BaseError) {
         return response
           .status(AppConstantes.httpStatus.OK)

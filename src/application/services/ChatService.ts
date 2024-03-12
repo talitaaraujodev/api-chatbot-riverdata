@@ -8,18 +8,14 @@ import { OutputChatDto } from '../dto/ChatDto';
 
 @injectable()
 export class ChatService implements ChatServiceInputPort {
-  context: string = 'AWS Cloud Services';
-  constructor() {}
-
-  async sendPrompt(prompt: string): Promise<OutputChatDto> {
-    if (!prompt) {
-      throw new BadRequestError('BadRequestError', [
-        'Prompt é um campo obrigatório.',
-      ]);
-    }
+  private readonly theme: string = 'AWS Serviços';
+  private readonly session: LlamaChatSession;
+  private readonly context: LlamaContext;
+  
+  constructor() {
     const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-    const model = new LlamaModel({
+    let model = new LlamaModel({
       modelPath: path.join(
         __dirname,
         '..',
@@ -30,13 +26,21 @@ export class ChatService implements ChatServiceInputPort {
       ),
     });
 
-    const context = new LlamaContext({ model, threads: 4 });
-    const session = new LlamaChatSession({ context });
+    this.context = new LlamaContext({ model, threads: 4 });
+    this.session = new LlamaChatSession({ context: this.context });
+  }
 
-    const question = `Pergunta sobre ${this.context}: ${prompt}`;
+  async sendPrompt(prompt: string): Promise<OutputChatDto> {
+    if (!prompt) {
+      throw new BadRequestError('BadRequestError', [
+        'Prompt é um campo obrigatório.',
+      ]);
+    }
+
+    const question = `${this.theme}: ${prompt}`;
     console.log('User: ' + question);
 
-    const response = await session.prompt(question);
+    const response = await this.session.prompt(question);
     console.log('AI:' + response);
 
     return {
