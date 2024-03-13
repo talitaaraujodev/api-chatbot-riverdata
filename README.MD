@@ -9,7 +9,7 @@ Esse projeto faz parte do desafio técnico da Riverdata, e consiste em uma API R
 ## 📋 Pré Requisitos
 
 - Baixar o modelo de linguagem do LLAMA no seguinte link: https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGUF/resolve/main/llama-2-7b-chat.Q2_K.gguf ;
-- Criar uma pasta chamada models no mesmo nível da pasta src e c4olar o modelo baixado anteriormente;
+- Criar uma pasta chamada models no mesmo nível da pasta src e colar o modelo baixado anteriormente nessa pasta;
 - Ter o Docker instalado na sua máquina, pois toda a aplicação será subida em containers no Docker;
 - Crie um arquivo .env seguindo a estrutura do .env.example;
 
