@@ -1,18 +1,12 @@
-FROM node:20-alpine
-
-RUN addgroup app && adduser -S -G app app
-RUN mkdir /app && chown app:app /app
-USER app
+FROM node:latest
 
 WORKDIR /app
 
-COPY --chown=app package*.json ./
+COPY package*.json ./
 
 RUN npm install
 
-COPY --chown=app . .
-
-ADD --chown=app https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGUF/resolve/main/llama-2-7b-chat.Q2_K.gguf models/llama-2-7b-chat.Q2_K.gguf
+COPY  . .
 
 EXPOSE 4009
 
